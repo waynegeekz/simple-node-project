@@ -1,17 +1,10 @@
-const log = require('./logger');
-const path = require('path');
-const os = require('os');
-const fs = require('fs');
-const EventEmitter = require('events');
-const emitter = new EventEmitter();
+const Logger = require('./logger');
+const logger = new Logger();
 
 // Register a Listener
-emitter.on('messageLogged', ( args ) => {
+logger.on('messageLogged', ( args ) => {
     console.log("Listener invoked!", args);
 });
 
 
-emitter.emit('messageLogged', {
-    id : 1,
-    url : 'http://'
-});
+logger.log('message');
