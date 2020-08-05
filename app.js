@@ -1,9 +1,9 @@
 const log = require('./logger');
 const path = require('path');
 const os = require('os');
+const fs = require('fs');
 
-let totalMemory = os.totalmem();
-let freeMemory = os.freemem();
-
-console.log(`TOTAL MEMORY: ${os.totalmem}`);
-console.log(`FREE MEMORY: ${os.freemem}`);
+fs.readdir('./', function(err, files) {
+    if (err) console.log('Error', err);
+    else console.log('Result', files);
+});
