@@ -6,9 +6,12 @@ const EventEmitter = require('events');
 const emitter = new EventEmitter();
 
 // Register a Listener
-emitter.on('messageLogged', function() {
-    console.log("Listener invoked!")
+emitter.on('messageLogged', ( args ) => {
+    console.log("Listener invoked!", args);
 });
 
 
-emitter.emit('messageLogged');
+emitter.emit('messageLogged', {
+    id : 1,
+    url : 'http://'
+});
